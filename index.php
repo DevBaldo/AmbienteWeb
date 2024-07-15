@@ -14,6 +14,8 @@
                 <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="citas.php">Sistema de Citas</a></li>
                 <li class="nav-item"><a class="nav-link" href="emergencias.php">Emergencias</a></li>
+                <li class="nav-item"><a class="nav-link" href="Adopciones.php">Adopciones</a></li>
+                <li class="nav-item"><a class="nav-link" href="historial.php">Historial Clinico</a></li>
             </ul>
         </nav>
     </header>
