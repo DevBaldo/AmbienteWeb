@@ -16,6 +16,9 @@
                 <li class="nav-item"><a class="nav-link" href="emergencias.php">Emergencias</a></li>
                 <li class="nav-item"><a class="nav-link" href="Adopciones.php">Adopciones</a></li>
                 <li class="nav-item"><a class="nav-link" href="historial.php">Historial Clinico</a></li>
+                <li class="nav-item"><a class="nav-link" href="cuidados.php">Cuidado de mascotas</a></li>
+                <li class="nav-item"><a class="nav-link" href="servicios.php">Servicios para mascotas</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacto.php">Contacto</a></li>
             </ul>
         </nav>
     </header>

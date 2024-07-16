@@ -15,6 +15,7 @@
                 <li><a href="emergencia.php">Módulo de Emergencia</a></li>
                 <li><a href="historial.php">Historial Clínico</a></li>
                 <li><a href="cuidados.php">Cuidado de Mascotas</a></li>
+                <li><a href="servicios.php">Servicios para Mascotas</a></li>
                 <li><a href="contacto.php">Contacto</a></li>
             </ul>
         </nav>
