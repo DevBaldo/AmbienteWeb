@@ -2,21 +2,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sección de Adopciones - Clínica Veterinaria</title>
+    <title>Adopciones - Clínica Veterinaria</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="CSS\styles.css">
 </head>
 <body>
-    <header>
-        <h1>Sección de Adopciones</h1>
-        <nav>
-            <ul>
-                <li><a href="index.php">Inicio</a></li>
-                <li><a href="citas.php">Sistema de Citas</a></li>
-                <li><a href="emergencia.php">Módulo de Emergencia</a></li>
-                <li><a href="historial.php">Historial Clínico</a></li>
-                <li><a href="cuidados.php">Cuidado de Mascotas</a></li>
-                <li><a href="servicios.php">Servicios para Mascotas</a></li>
-                <li><a href="contacto.php">Contacto</a></li>
+<header class="bg-dark text-white p-3 text-center">
+        <h1>Sistema de Adopciones</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="citas.php">Sistema de Citas</a></li>
+                <li class="nav-item"><a class="nav-link" href="emergencias.php">Emergencias</a></li>
+                <li class="nav-item"><a class="nav-link" href="Adopciones.php">Adopciones</a></li>
+                <li class="nav-item"><a class="nav-link" href="historial.php">Historial Clinico</a></li>
+                <li class="nav-item"><a class="nav-link" href="cuidados.php">Cuidado de mascotas</a></li>
+                <li class="nav-item"><a class="nav-link" href="servicios.php">Servicios para mascotas</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacto.php">Contacto</a></li>
             </ul>
         </nav>
     </header>

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 event.preventDefault();
 
-                if (form.id === 'agenda-citas-form') {
+                if (form.id === 'citas-form') {
                     alert('Cita agendada correctamente');
                 } else if (form.id === 'contacto-form') {
                     var nombre = document.getElementById('nombre').value;
