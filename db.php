@@ -1,15 +1,14 @@
 <?php
+$servername = "localhost";
+$username = "root"; // Cambia según tu configuración
+$password = ""; // Cambia según tu configuración
+$dbname = "veterinaria";
 
-$host = 'localhost';
-$dbname = 'veterinaria';
-$username = 'root';
-$password = '';
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo 'Error en la conexión: ' . $e->getMessage();
-    die();
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
 }
 ?>

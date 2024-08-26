@@ -1,13 +1,11 @@
 
 
 
-
 --------------------------------------------------------------------------------
 -- LOGIN: 
 -- USUARIO: admin
 -- PASSWORD: admin123
 --------------------------------------------------------------------------------
-
 
 
 
@@ -109,3 +107,66 @@ CREATE TABLE Contactos (
     mensaje TEXT,
     fecha_envio DATETIME NOT NULL
 );
+
+
+
+--------------------------------------------------------------------------------
+-- INSERTS
+--------------------------------------------------------------------------------
+INSERT INTO Mascotas (nombre, especie, raza, edad, sexo, estado_adopcion) VALUES
+('Rex', 'Perro', 'Labrador', 3, 'Macho', 'Disponible'),
+('Luna', 'Gato', 'Siamés', 2, 'Hembra', 'Disponible'),
+('Coco', 'Conejo', 'Angora', 1, 'Macho', 'Disponible'),
+('Rita', 'Perro', 'Poodle', 4, 'Hembra', 'Disponible'),
+('Max', 'Gato', 'Persa', 5, 'Macho', 'Adoptado');
+
+INSERT INTO Clientes (nombre, direccion, telefono, email) VALUES
+('Ana Pérez', 'Av. Principal 123, Ciudad', '555-1234', 'ana.perez@example.com'),
+('Luis Gómez', 'Calle Secundaria 456, Ciudad', '555-5678', 'luis.gomez@example.com'),
+('María Fernández', 'Paseo del Parque 789, Ciudad', '555-9101', 'maria.fernandez@example.com'),
+('Carlos Rodríguez', 'Plaza Mayor 101, Ciudad', '555-1122', 'carlos.rodriguez@example.com'),
+('Laura Martínez', 'Calle del Sol 202, Ciudad', '555-3344', 'laura.martinez@example.com');
+
+INSERT INTO Citas (id_cliente, id_mascota, fecha_hora, motivo) VALUES
+(1, 1, '2024-09-01 10:00:00', 'Consulta general'),
+(2, 2, '2024-09-02 11:00:00', 'Vacunación'),
+(3, 3, '2024-09-03 09:30:00', 'Desparasitación'),
+(4, 4, '2024-09-04 14:00:00', 'Chequeo pre-quirúrgico'),
+(5, 1, '2024-09-05 16:00:00', 'Radiografía');
+
+INSERT INTO Emergencias (id_cliente, id_mascota, fecha_hora, descripcion) VALUES
+(1, 1, '2024-08-30 20:00:00', 'Accidente de tráfico'),
+(2, 2, '2024-08-31 22:30:00', 'Problema respiratorio'),
+(3, 3, '2024-09-01 18:15:00', 'Ingestión de objeto extraño'),
+(4, 4, '2024-09-02 07:45:00', 'Herida abierta'),
+(5, 5, '2024-09-03 21:00:00', 'Síntomas de envenenamiento');
+
+INSERT INTO Historial_Medico (id_mascota, fecha, diagnostico, tratamiento, notas) VALUES
+(1, '2024-08-15', 'Otitis', 'Antibióticos', 'Recuperación completa esperada.'),
+(2, '2024-08-16', 'Gripe felina', 'Antivirales', 'Observación continua.'),
+(3, '2024-08-17', 'Dermatitis', 'Pomada tópica', 'Controlar el rascado.'),
+(4, '2024-08-18', 'Fractura de pata', 'Inmovilización', 'Requiere reposo.'),
+(5, '2024-08-19', 'Esguince', 'Descanso y analgésicos', 'Seguimiento necesario.');
+
+INSERT INTO Servicios (nombre_servicio, descripcion, precio) VALUES
+('Consultas generales y de especialidad', 'Evaluaciones completas para diferentes necesidades y especialidades.', 50.00),
+('Vacunación', 'Vacunas para proteger a tu mascota de enfermedades comunes.', 30.00),
+('Desparasitación', 'Tratamiento para eliminar parásitos internos y externos.', 25.00),
+('Cirugías', 'Procedimientos quirúrgicos necesarios para el bienestar de tu mascota.', 150.00),
+('Radiografías y ecografías', 'Estudios de imágenes para diagnósticos precisos.', 100.00),
+('Hospitalización', 'Atención y cuidado de tu mascota en caso de enfermedad o cirugía.', 200.00),
+('Laboratorio clínico', 'Análisis y pruebas de laboratorio para diagnósticos exactos.', 80.00),
+('Grooming', 'Servicios de estética y cuidado para mantener a tu mascota limpia y saludable.', 40.00),
+('Venta de alimentos y accesorios', 'Productos esenciales para el cuidado y bienestar de tu mascota.', 20.00);
+
+INSERT INTO Adopciones (id_mascota, id_cliente, fecha_adopcion, estado) VALUES
+(1, 1, '2024-08-20', 'Completada'),
+(2, 2, '2024-08-21', 'Completada'),
+(3, 3, '2024-08-22', 'Pendiente'),
+(4, 4, '2024-08-23', 'Pendiente'),
+(5, 5, '2024-08-24', 'Completada');
+
+INSERT INTO Contactos (nombre, email, telefono, mensaje, fecha_envio) VALUES
+('Sofía López', 'sofia.lopez@example.com', '555-6789', 'Me gustaría agendar una cita para mi perro.', '2024-08-25 09:00:00'),
+('Javier Ortega', 'javier.ortega@example.com', '555-9876', '¿Tienen servicios de grooming disponibles?', '2024-08-26 10:15:00'),
+('Claudia Moreno', 'claudia.moreno@example.com', '555-5432', 'Quisiera saber más sobre las adopciones.', '2024-08-27 11:30:00');
