@@ -1,14 +1,14 @@
 <?php
+
 $servername = "localhost";
-$username = "root"; // Cambia según tu configuración
-$password = ""; // Cambia según tu configuración
-$dbname = "veterinaria";
+$username = "root";
+$password = "";
+$database = "vete";
 
+$conn = new mysqli($servername,$username, $password, $database);
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+if($conn->connect_error){
+    die("Conexion fallida: ".$conn->connect_error);
+    
 }
-?>
+
