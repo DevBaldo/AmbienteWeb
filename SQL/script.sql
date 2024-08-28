@@ -191,7 +191,7 @@ INSERT INTO `usuario` (`email`, `password`, `name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `servicios` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `nombre` VARCHAR(100) NOT NULL
+  `nombre` VARCHAR(100) NOT NULL,
   `precio` DECIMAL(10, 2) NOT NULL);
 
 INSERT INTO `servicios` (`nombre`, `precio`) VALUES

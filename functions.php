@@ -17,7 +17,7 @@ function getMenu(){
 
     if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] != "") {
         // Usuario ha iniciado sesión, agregar opciones adicionales
-        $menu[] = array("url" => "ver_reservas.php", "name" => "Ver Reservas");
+        $menu[] = array("url" => "ver_reserva.php", "name" => "Ver Reservas");
         $menu[] = array("url" => "ver_adopciones.php", "name" => "Ver Adopciones");
         $menu[] = array("url" => "historial.php", "name" => "Historial Medico");
         $menu[] = array("url" => "recomendaciones.php", "name" => "Recomendaciones");
