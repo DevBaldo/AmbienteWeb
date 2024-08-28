@@ -170,3 +170,95 @@ INSERT INTO Contactos (nombre, email, telefono, mensaje, fecha_envio) VALUES
 ('Sofía López', 'sofia.lopez@example.com', '555-6789', 'Me gustaría agendar una cita para mi perro.', '2024-08-25 09:00:00'),
 ('Javier Ortega', 'javier.ortega@example.com', '555-9876', '¿Tienen servicios de grooming disponibles?', '2024-08-26 10:15:00'),
 ('Claudia Moreno', 'claudia.moreno@example.com', '555-5432', 'Quisiera saber más sobre las adopciones.', '2024-08-27 11:30:00');
+
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+--NUEVA BASE DE DATOS--
+
+CREATE TABLE `usuario` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `name` varchar(50) NOT NULL
+);
+
+-- admin@email.com 123456
+INSERT INTO `usuario` (`email`, `password`, `name`) VALUES
+('admin@email.com', '$2y$10$d6POOPxvzXHrTHBT./UyAe.bZFH90l1ZWDpfZZ7i7mCZEY5DejzNq', 'Admin');
+
+CREATE TABLE IF NOT EXISTS `servicios` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `nombre` VARCHAR(100) NOT NULL
+  `precio` DECIMAL(10, 2) NOT NULL);
+
+INSERT INTO `servicios` (`nombre`, `precio`) VALUES
+('Consultas generales y de especialidad', 50.00),
+('Vacunación', 25.00),
+('Desparasitación', 30.00),
+('Cirugías', 300.00),
+('Radiografías y ecografías', 100.00),
+('Hospitalización', 150.00),
+('Laboratorio clínico', 75.00),
+('Grooming', 40.00),
+('Venta de alimentos y accesorios', 35.00);
+
+CREATE TABLE IF NOT EXISTS reservas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_usuario VARCHAR(100) NOT NULL,
+    mascota_id INT NOT NULL,
+    servicio_id INT NOT NULL,
+    fecha_reserva DATETIME NOT NULL,
+    FOREIGN KEY (mascota_id) REFERENCES mascotas(id),
+    FOREIGN KEY (servicio_id) REFERENCES servicios(id)
+);
+
+CREATE TABLE IF NOT EXISTS `mascotas` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `nombre` VARCHAR(50) NOT NULL,
+  `tipo` VARCHAR(30) NOT NULL,
+  `edad` INT,
+  `usuario_id` INT NOT NULL,
+  FOREIGN KEY (`usuario_id`) REFERENCES `usuario`(`id`)
+);
+
+-- Insertar datos en la tabla 'mascotas
+INSERT INTO `mascotas` (`nombre`, `tipo`, `edad`, `usuario_id`) VALUES
+('Firulais', 'Perro', 4, 1),
+('Mishka', 'Gato', 2, 1),
+('Lola', 'Conejo', 1, 1);
+
+CREATE TABLE IF NOT EXISTS historial_clinico (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    reserva_id INT NOT NULL,
+    mascota_id INT NOT NULL,
+    fecha_reserva DATETIME NOT NULL,
+    servicio_id INT NOT NULL,
+    FOREIGN KEY (reserva_id) REFERENCES reservas(id),
+    FOREIGN KEY (mascota_id) REFERENCES mascotas(id),
+    FOREIGN KEY (servicio_id) REFERENCES servicios(id)
+);
+
+CREATE TABLE IF NOT EXISTS animales_disponibles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    tipo_animal VARCHAR(30) NOT NULL,
+    raza VARCHAR(50) NOT NULL,
+    anos INT NOT NULL,
+    descripcion TEXT
+);
+
+INSERT INTO animales_disponibles (nombre, tipo_animal, raza, anos, descripcion) VALUES 
+('Bobby', 'Perro', 'Labrador Retriever', 3, 'Bobby es un perro enérgico y amigable que ama jugar al aire libre. Es ideal para familias con niños.'),
+('Mimi', 'Gato', 'Siames', 2, 'Mimi es una gata tranquila y cariñosa que disfruta de la compañía de los humanos. Es perfecta para apartamentos.'),
+('Rocky', 'Perro', 'Bulldog Francés', 4, 'Rocky es un bulldog francés leal y afectuoso. Tiene una personalidad juguetona pero también disfruta de las siestas largas.');
+
+CREATE TABLE IF NOT EXISTS adopciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_animal VARCHAR(50) NOT NULL,
+    tipo_animal VARCHAR(30) NOT NULL,
+    raza VARCHAR(50) NOT NULL,
+    estado VARCHAR(20) NOT NULL DEFAULT 'pendiente'
+);
