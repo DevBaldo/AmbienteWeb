@@ -1,21 +1,24 @@
 <?php
-session_start();
-include 'db.php';
+include("db.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = $_POST['usuario'];
-    $clave = $_POST['clave'];
+$usuario = $_POST["usuario"];
+$clave = $_POST["clave"];
 
-    $stmt = $pdo->prepare("SELECT * FROM admin WHERE usuario = :usuario");
-    $stmt->execute(['usuario' => $usuario]);
-    $admin = $stmt->fetch();
+$sql = "SELECT * FROM usuario WHERE email = '$usuario'";
 
-    if ($admin && hash('sha256', $clave) === $admin['clave']) {
-        $_SESSION['admin'] = $admin['usuario'];
-        header("Location: index.php");
-        exit();
-    } else {
-        $error = "Usuario o clave incorrecta";
+$result = $conn->query($sql);
+
+if($result->num_rows > 0){
+    while($row = $result->fetch_assoc()){
+        if($row["email"] == $usuario){
+            if(password_verify($clave,$row["password"])){
+                session_start();
+                $_SESSION["usuario"] = $usuario;
+                header("Location: index.php");
+            }
+        }
     }
+} else {
+    echo "No existe el usuario! <br>";
+    die();
 }
-?>
