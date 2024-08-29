@@ -55,18 +55,18 @@ $menu = getMenu();
         </section>
         <section>
             <h2>Contacto</h2>
-            <p class="contact">Para mas informacion, puedes contactarnos a travez de nuestro formulario en linea</p>
-            <form>
+            <h2 class="contact">Para más información, puedes contactarnos a través de nuestro formulario en línea</h2>
+            <form method="post" action="procesar_contacto.php">
                 <label>Nombre</label>
-                <input type="text" id="nombre">
+                <input type="text" name="nombre" id="nombre">
                 <br>
                 <label>Email</label>
-                <input type="email" id="email">
+                <input type="email" name="correo" id="correo">
                 <br>
                 <label>Mensaje</label>
-                <textarea id="mensaje"></textarea>
+                <textarea name="mensaje" id="mensaje"></textarea>
                 <br>
-                <button type="button" id="boton_envio">Enviar</button>
+                <button type="submit" id="boton_envio">Enviar</button>
             </form>
         </section>
     </main>
