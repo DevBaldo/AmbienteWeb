@@ -31,7 +31,46 @@ function getMenu(){
     return $menu;
 }
 
+// Función para obtener una mascota por su nombre
+function getMascotaByName($nombre_mascota) {
+    global $conn;
 
+    // Preparar la consulta SQL
+    $query = "SELECT * FROM mascotas WHERE nombre = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $nombre_mascota);
+    $stmt->execute();
+
+    // Obtener el resultado
+    $result = $stmt->get_result();
+    $mascota = $result->fetch_assoc();
+
+    // Cerrar el statement y devolver la mascota encontrada
+    $stmt->close();
+    return $mascota;
+}
+
+// Función para obtener el historial clínico de una mascota por su ID
+function getHistorialClinicoByMascotaId($mascota_id) {
+    global $conn;
+
+    // Preparar la consulta SQL
+    $query = "SELECT hc.id, hc.fecha_reserva, s.nombre AS nombre_servicio 
+              FROM historial_clinico hc
+              JOIN servicios s ON hc.servicio_id = s.id
+              WHERE hc.mascota_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $mascota_id);
+    $stmt->execute();
+
+    // Obtener los resultados
+    $result = $stmt->get_result();
+    $historialClinico = $result->fetch_all(MYSQLI_ASSOC);
+
+    // Cerrar el statement y devolver el historial clínico
+    $stmt->close();
+    return $historialClinico;
+}
 
 // Función para obtener los servicios de la base de datos
 function getServicios() {

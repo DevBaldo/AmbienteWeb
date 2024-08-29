@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS adopciones (
 --------------------------------------------------------------------------------
 
 -- admin@email.com 123456
+USE vete;
 INSERT INTO `usuario` (`email`, `password`, `name`) VALUES
 ('admin@email.com', '$2y$10$d6POOPxvzXHrTHBT./UyAe.bZFH90l1ZWDpfZZ7i7mCZEY5DejzNq', 'Admin');
 
@@ -111,5 +112,21 @@ INSERT INTO animales_disponibles (nombre, tipo_animal, raza, anos, descripcion) 
 ('Bobby', 'Perro', 'Labrador Retriever', 3, 'Bobby es un perro enérgico y amigable que ama jugar al aire libre. Es ideal para familias con niños.'),
 ('Mimi', 'Gato', 'Siames', 2, 'Mimi es una gata tranquila y cariñosa que disfruta de la compañía de los humanos. Es perfecta para apartamentos.'),
 ('Rocky', 'Perro', 'Bulldog Francés', 4, 'Rocky es un bulldog francés leal y afectuoso. Tiene una personalidad juguetona pero también disfruta de las siestas largas.');
+
+INSERT INTO reservas (nombre_usuario, mascota_id, servicio_id, fecha_reserva) VALUES
+('Admin', 1, 1, '2024-08-01 09:00:00'),
+('Admin', 1, 2, '2024-08-15 10:00:00'),
+('Admin', 2, 3, '2024-08-05 11:00:00'),
+('Admin', 2, 4, '2024-08-20 12:00:00'),
+('Admin', 3, 5, '2024-08-10 13:00:00'), 
+('Admin', 3, 1, '2024-08-25 14:00:00'); 
+
+INSERT INTO historial_clinico (reserva_id, mascota_id, fecha_reserva, servicio_id) VALUES
+(1, 1, '2024-08-01 09:00:00', 1),
+(2, 1, '2024-08-15 10:00:00', 2),
+(3, 2, '2024-08-05 11:00:00', 3), 
+(4, 2, '2024-08-20 12:00:00', 4),
+(5, 3, '2024-08-10 13:00:00', 5),
+(6, 3, '2024-08-25 14:00:00', 1);
 
 --------------------------------------------------------------------------------------------------------
